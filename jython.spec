@@ -2,7 +2,7 @@ Summary:	Python implementation in Java
 Summary(pl):	Implementacja jêzyka Python w Javie
 Name:		jython
 Version:	2.1
-Release:	4
+Release:	5
 License:	BSD
 Group:		Development/Languages/Java
 Source0:	http://dl.sourceforge.net/jython/%{name}-21.class
@@ -13,7 +13,7 @@ Requires:	jre
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_javaclassdir	%{_libdir}/java
+%define		_javalibdir	%{_datadir}/java
 %define		jredir		%{_libdir}/java/jre/lib
 
 %description
@@ -33,14 +33,14 @@ export JAVA_HOME
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_javaclassdir}
+install -d $RPM_BUILD_ROOT%{_javalibdir}
 
-install %{name}.jar $RPM_BUILD_ROOT%{_javaclassdir}
+install %{name}.jar $RPM_BUILD_ROOT%{_javalibdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.TXT NEWS
-%{_javaclassdir}/*.jar
+%doc README.txt NEWS LICENSE.txt
+%{_javalibdir}/*.jar
