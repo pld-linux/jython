@@ -3,7 +3,7 @@ Summary:	Python implementation in Java
 Summary(pl):	Implementacja jêzyka Python w Javie
 Name:		jython
 Version:	2.1
-Release:	2
+Release:	3
 License:	distributable
 Group:		Development/Languages/Java
 URL:		http://www.jython.org
@@ -37,7 +37,7 @@ install -d $RPM_BUILD_ROOT%{_javaclassdir}
 
 install %{name}.jar $RPM_BUILD_ROOT%{_javaclassdir}
 
-gzip -9nf README
+gzip -9nf README.TXT NEWS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
