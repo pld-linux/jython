@@ -27,7 +27,7 @@ Implementacja jêzyka Python w Javie.
 %prep
 %setup -q -c -T
 install %{SOURCE0} .
-java -classpath . jython-21 -o Jython-2.1 demo lib source
+java -classpath . jython-21 -o . demo lib source
 
 %build
 JAVA_HOME=%{_libdir}/java-sdk
