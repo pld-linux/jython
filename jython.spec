@@ -37,12 +37,10 @@ install -d $RPM_BUILD_ROOT%{_javaclassdir}
 
 install %{name}.jar $RPM_BUILD_ROOT%{_javaclassdir}
 
-gzip -9nf README.TXT NEWS
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README.TXT NEWS
 %{_javaclassdir}/*.jar
