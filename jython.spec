@@ -6,6 +6,7 @@ Release:	4
 License:	BSD
 Group:		Development/Languages/Java
 Source0:	http://dl.sourceforge.net/jython/%{name}-21.class
+# Source0-md5:	e3e6be56646fb7cd6d19a6a69bd76e2f
 URL:		http://www.jython.org/
 BuildRequires:	jdk
 Requires:	jre
