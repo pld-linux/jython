@@ -6,8 +6,6 @@ Version:	2.1
 Release:	1
 License:	distributable
 Group:		Development/Languages/Java
-Group(de):	Entwicklung/Sprachen/Java
-Group(pl):	Programowanie/Jêzyki/Java
 URL:		http://www.jython.org
 Source0:	http://prdownloads.sourceforge.net/jython/jython-21.class
 BuildRequires:	jdk
