@@ -7,7 +7,7 @@ Release:	1
 License:	distributable
 Group:		Development/Languages/Java
 URL:		http://www.jython.org
-Source0:	http://prdownloads.sourceforge.net/jython/jython-21.class
+Source0:	http://prdownloads.sourceforge.net/jython/%{name}-21.class
 BuildRequires:	jdk
 Requires:	jre
 BuildArch:	noarch
