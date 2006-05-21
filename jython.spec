@@ -11,8 +11,8 @@ Source0:	http://dl.sourceforge.net/jython/%{name}-21.class
 URL:		http://www.jython.org/
 BuildRequires:	jdk
 BuildRequires:	jpackage-utils
-Requires:	jre
 Requires:	jpackage-utils
+Requires:	jre
 BuildArch:	noarch
 ExclusiveArch:	i586 i686 pentium3 pentium4 athlon %{x8664} noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -89,7 +89,7 @@ install %{SOURCE0} .
 %build
 unset CLASSPATH || :
 unset JAVA_HOME || :
-export JAVA_HOME="%{java_home}" 
+export JAVA_HOME="%{java_home}"
 java -classpath . jython-21 -o . demo lib source
 
 ln -s %{_javadocdir}/%{name}-%{version} javadoc
@@ -109,21 +109,21 @@ cp -ar Demo/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 ln -sf /var/cache/%{name} $RPM_BUILD_ROOT%{_datadir}/%{name}/cachedir
 
 unset CLASSPATH || :
-export JAVA_HOME="%{java_home}" 
+export JAVA_HOME="%{java_home}"
 
-cat >$RPM_BUILD_ROOT/%{_bindir}/%{name} <<EOF
+cat >$RPM_BUILD_ROOT%{_bindir}/%{name} <<'EOF'
 #/bin/sh
 
 . %{_javadir}-utils/java-functions
 set_javacmd
 
-\$JAVACMD -Dpython.home="%{_datadir}/%{name}" -classpath "%{_javadir}/%{name}-%{version}.jar:\$CLASSPATH" "org.python.util.jython" "\$@"
+exec $JAVACMD -Dpython.home="%{_datadir}/%{name}" -classpath "%{_javadir}/%{name}-%{version}.jar:$CLASSPATH" "org.python.util.jython" "$@"
 EOF
 
-cat >$RPM_BUILD_ROOT/%{_bindir}/jythonc <<EOF
+cat >$RPM_BUILD_ROOT%{_bindir}/jythonc <<'EOF'
 #/bin/sh
 
-%{_bindir}/%{name} "%{_datadir}/%{name}/Tools/jythonc/jythonc.py" "\$@"
+exec %{_bindir}/%{name} "%{_datadir}/%{name}/Tools/jythonc/jythonc.py" "$@"
 EOF
 
 %post
@@ -136,7 +136,7 @@ EOF
 
 %preun
 if [ "$1" = "0" ]; then
-rm -rf /var/cache/%{name}/*
+	rm -rf /var/cache/%{name}/*
 fi
 
 %clean
@@ -153,18 +153,23 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/Lib/site.py
 
 %files modules
+%defattr(644,root,root,755)
 %{_datadir}/%{name}/Lib
 %exclude %{_datadir}/%{name}/Lib/site.py
 
 %files tools
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/jythonc
 %{_datadir}/%{name}/Tools
 
 %files examples
+%defattr(644,root,root,755)
 %{_examplesdir}/%{name}-%{version}
 
 %files doc
+%defattr(644,root,root,755)
 %doc Doc/*.html Doc/images javadoc
 
 %files javadoc
+%defattr(644,root,root,755)
 %{_javadocdir}/%{name}-%{version}
