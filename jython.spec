@@ -10,7 +10,9 @@ Source0:	http://dl.sourceforge.net/jython/%{name}-21.class
 # Source0-md5:	e3e6be56646fb7cd6d19a6a69bd76e2f
 URL:		http://www.jython.org/
 BuildRequires:	jdk
+BuildRequires:	jpackage-utils
 Requires:	jre
+Requires:	jpackage-utils
 BuildArch:	noarch
 ExclusiveArch:	i586 i686 pentium3 pentium4 athlon %{x8664} noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -86,6 +88,7 @@ install %{SOURCE0} .
 
 %build
 unset CLASSPATH || :
+unset JAVA_HOME || :
 export JAVA_HOME="%{java_home}" 
 java -classpath . jython-21 -o . demo lib source
 
@@ -111,7 +114,10 @@ export JAVA_HOME="%{java_home}"
 cat >$RPM_BUILD_ROOT/%{_bindir}/%{name} <<EOF
 #/bin/sh
 
-"%{java}" -Dpython.home="%{_datadir}/%{name}" -classpath "%{_javadir}/%{name}-%{version}.jar:\$CLASSPATH" "org.python.util.jython" "\$@"
+. %{_javadir}-utils/java-functions
+set_javacmd
+
+\$JAVACMD -Dpython.home="%{_datadir}/%{name}" -classpath "%{_javadir}/%{name}-%{version}.jar:\$CLASSPATH" "org.python.util.jython" "\$@"
 EOF
 
 cat >$RPM_BUILD_ROOT/%{_bindir}/jythonc <<EOF
