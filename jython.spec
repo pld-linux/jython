@@ -86,7 +86,6 @@ install %{SOURCE0} .
 
 %build
 unset CLASSPATH || :
-unset JAVA_HOME || :
 export JAVA_HOME="%{java_home}" 
 java -classpath . jython-21 -o . demo lib source
 
@@ -107,7 +106,6 @@ cp -ar Demo/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 ln -sf /var/cache/%{name} $RPM_BUILD_ROOT%{_datadir}/%{name}/cachedir
 
 unset CLASSPATH || :
-unset JAVA_HOME || :
 export JAVA_HOME="%{java_home}" 
 
 cat >$RPM_BUILD_ROOT/%{_bindir}/%{name} <<EOF
