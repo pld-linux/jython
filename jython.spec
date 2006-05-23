@@ -25,6 +25,7 @@ Implementacja j瞛yka Python w Javie.
 
 %package doc
 Summary:	Manual for %{name}
+Summary(pl):	Podr璚znik dla pakietu %{name}
 Group:		Development/Languages/Java
 
 %description doc
@@ -35,6 +36,9 @@ Documentazione di %{name}.
 
 %description doc -l fr
 Documentation pour %{name}.
+
+%description doc -l pl
+Dokumentacja dla pakietu %{name}.
 
 %package javadoc
 Summary:	API documentation for Jython
@@ -49,7 +53,7 @@ Dokumentacja API Jythona, wygenerowana przez JavaDoc.
 
 %package modules
 Summary:	Python modules for Jython
-Summary(pl):	Modu造 pythona dla Jythona
+Summary(pl):	Modu造 Pythona dla Jythona
 Group:		Development/Languages/Java
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
@@ -57,7 +61,7 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 Python modules for Jython.
 
 %description modules -l pl
-Modu造 pythona dla Jythona.
+Modu造 Pythona dla Jythona.
 
 %package tools
 Summary:	Jython tools
