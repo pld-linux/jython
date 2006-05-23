@@ -1,4 +1,3 @@
-%include /usr/lib/rpm/macros.java
 Summary:	Python implementation in Java
 Summary(pl):	Implementacja jêzyka Python w Javie
 Name:		jython
@@ -10,7 +9,7 @@ Source0:	http://dl.sourceforge.net/jython/%{name}-21.class
 # Source0-md5:	e3e6be56646fb7cd6d19a6a69bd76e2f
 URL:		http://www.jython.org/
 BuildRequires:	jdk
-BuildRequires:	rpm-javaprov
+BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jpackage-utils
 Requires:	jre
 BuildArch:	noarch
