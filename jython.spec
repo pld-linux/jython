@@ -107,9 +107,9 @@ install -d $RPM_BUILD_ROOT{%{_javadir},%{_javadocdir}/%{name}-%{version},/var/ca
 install %{name}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
 ln -s %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}.jar
 
-cp -ar Doc/javadoc/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
-cp -ar Lib Tools $RPM_BUILD_ROOT%{_datadir}/%{name}
-cp -ar Demo/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a Doc/javadoc/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
+cp -a Lib Tools $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -a Demo/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 ln -sf /var/cache/%{name} $RPM_BUILD_ROOT%{_datadir}/%{name}/cachedir
 
 unset CLASSPATH || :
