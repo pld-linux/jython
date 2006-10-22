@@ -154,11 +154,12 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/cachedir
 /var/cache/%{name}
+%dir %{_datadir}/%{name}/Lib
 %{_datadir}/%{name}/Lib/site.py
 
 %files modules
 %defattr(644,root,root,755)
-%{_datadir}/%{name}/Lib
+%{_datadir}/%{name}/Lib/*
 %exclude %{_datadir}/%{name}/Lib/site.py
 
 %files tools
