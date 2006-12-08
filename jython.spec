@@ -2,7 +2,7 @@ Summary:	Python implementation in Java
 Summary(pl):	Implementacja jêzyka Python w Javie
 Name:		jython
 Version:	2.1
-Release:	6
+Release:	7
 License:	BSD
 Group:		Development/Languages/Java
 Source0:	http://dl.sourceforge.net/jython/%{name}-21.class
@@ -43,7 +43,8 @@ Dokumentacja dla pakietu %{name}.
 %package javadoc
 Summary:	API documentation for Jython
 Summary(pl):	Dokumentacja API Jythona
-Group:		Development/Languages/Java
+Group:		Documentation
+Requires:	jpackage-utils
 
 %description javadoc
 JavaDoc-generated API documentation for Jython.
