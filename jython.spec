@@ -1,5 +1,5 @@
 Summary:	Python implementation in Java
-Summary(pl):	Implementacja jêzyka Python w Javie
+Summary(pl.UTF-8):   Implementacja jÄ™zyka Python w Javie
 Name:		jython
 Version:	2.1
 Release:	7
@@ -20,72 +20,72 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Python implementation in Java.
 
-%description -l pl
-Implementacja jêzyka Python w Javie.
+%description -l pl.UTF-8
+Implementacja jÄ™zyka Python w Javie.
 
 %package doc
 Summary:	Manual for %{name}
-Summary(pl):	Podrêcznik dla pakietu %{name}
+Summary(pl.UTF-8):   PodrÄ™cznik dla pakietu %{name}
 Group:		Development/Languages/Java
 
 %description doc
 Documentation for %{name}.
 
-%description doc -l it
+%description doc -l it.UTF-8
 Documentazione di %{name}.
 
-%description doc -l fr
+%description doc -l fr.UTF-8
 Documentation pour %{name}.
 
-%description doc -l pl
+%description doc -l pl.UTF-8
 Dokumentacja dla pakietu %{name}.
 
 %package javadoc
 Summary:	API documentation for Jython
-Summary(pl):	Dokumentacja API Jythona
+Summary(pl.UTF-8):   Dokumentacja API Jythona
 Group:		Documentation
 Requires:	jpackage-utils
 
 %description javadoc
 JavaDoc-generated API documentation for Jython.
 
-%description javadoc -l pl
+%description javadoc -l pl.UTF-8
 Dokumentacja API Jythona, wygenerowana przez JavaDoc.
 
 %package modules
 Summary:	Python modules for Jython
-Summary(pl):	Modu³y Pythona dla Jythona
+Summary(pl.UTF-8):   ModuÅ‚y Pythona dla Jythona
 Group:		Development/Languages/Java
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description modules
 Python modules for Jython.
 
-%description modules -l pl
-Modu³y Pythona dla Jythona.
+%description modules -l pl.UTF-8
+ModuÅ‚y Pythona dla Jythona.
 
 %package tools
 Summary:	Jython tools
-Summary(pl):	Narzêdzia Jythona
+Summary(pl.UTF-8):   NarzÄ™dzia Jythona
 Group:		Development/Languages/Java
 Requires:	%{name}-modules = %{epoch}:%{version}-%{release}
 
 %description tools
 Jython tools.
 
-%description tools -l pl
-Narzêdzia Jythona.
+%description tools -l pl.UTF-8
+NarzÄ™dzia Jythona.
 
 %package examples
 Summary:	Jython examples
-Summary(pl):	Przyk³ady u¿ycia Jythona
+Summary(pl.UTF-8):   PrzykÅ‚ady uÅ¼ycia Jythona
 Group:		Development/Languages/Java
 
 %description examples
 Jython examples (Demo).
 
-%description examples -l pl
-Przyk³ady u¿ycia Jythona.
+%description examples -l pl.UTF-8
+PrzykÅ‚ady uÅ¼ycia Jythona.
 
 %prep
 %setup -q -c -T
