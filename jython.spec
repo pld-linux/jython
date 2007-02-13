@@ -1,5 +1,5 @@
 Summary:	Python implementation in Java
-Summary(pl.UTF-8):   Implementacja języka Python w Javie
+Summary(pl.UTF-8):	Implementacja języka Python w Javie
 Name:		jython
 Version:	2.1
 Release:	7
@@ -25,7 +25,7 @@ Implementacja języka Python w Javie.
 
 %package doc
 Summary:	Manual for %{name}
-Summary(pl.UTF-8):   Podręcznik dla pakietu %{name}
+Summary(pl.UTF-8):	Podręcznik dla pakietu %{name}
 Group:		Development/Languages/Java
 
 %description doc
@@ -42,7 +42,7 @@ Dokumentacja dla pakietu %{name}.
 
 %package javadoc
 Summary:	API documentation for Jython
-Summary(pl.UTF-8):   Dokumentacja API Jythona
+Summary(pl.UTF-8):	Dokumentacja API Jythona
 Group:		Documentation
 Requires:	jpackage-utils
 
@@ -54,7 +54,7 @@ Dokumentacja API Jythona, wygenerowana przez JavaDoc.
 
 %package modules
 Summary:	Python modules for Jython
-Summary(pl.UTF-8):   Moduły Pythona dla Jythona
+Summary(pl.UTF-8):	Moduły Pythona dla Jythona
 Group:		Development/Languages/Java
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 
@@ -66,7 +66,7 @@ Moduły Pythona dla Jythona.
 
 %package tools
 Summary:	Jython tools
-Summary(pl.UTF-8):   Narzędzia Jythona
+Summary(pl.UTF-8):	Narzędzia Jythona
 Group:		Development/Languages/Java
 Requires:	%{name}-modules = %{epoch}:%{version}-%{release}
 
@@ -78,7 +78,7 @@ Narzędzia Jythona.
 
 %package examples
 Summary:	Jython examples
-Summary(pl.UTF-8):   Przykłady użycia Jythona
+Summary(pl.UTF-8):	Przykłady użycia Jythona
 Group:		Development/Languages/Java
 
 %description examples
