@@ -95,7 +95,7 @@ install %{SOURCE0} .
 unset CLASSPATH || :
 unset JAVA_HOME || :
 export JAVA_HOME="%{java_home}"
-java -classpath . jython-21 -o . demo lib source
+%java -classpath . jython-21 -o . demo lib source
 
 ln -s %{_javadocdir}/%{name}-%{version} javadoc
 
