@@ -5,8 +5,8 @@ Version:	2.2
 Release:	1
 License:	BSD
 Group:		Development/Languages/Java
-Source0:	http://dl.sourceforge.net/jython/%{name}-21.class
-# Source0-md5:	e3e6be56646fb7cd6d19a6a69bd76e2f
+Source0:	http://dl.sourceforge.net/jython/%{name}_installer-%{version}.jar
+# Source0-md5:	aba8e11ed071be7f7c2687624b5e7918
 URL:		http://www.jython.org/
 BuildRequires:	jdk
 BuildRequires:	jpackage-utils
@@ -95,15 +95,17 @@ install %{SOURCE0} .
 unset CLASSPATH || :
 unset JAVA_HOME || :
 export JAVA_HOME="%{java_home}"
-%java -classpath . jython-21 -o . demo lib source
+
+%java -jar jython_installer-2.2.jar --silent --directory installed/ --type all
 
 ln -s %{_javadocdir}/%{name}-%{version} javadoc
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT{%{_javadir},%{_javadocdir}/%{name}-%{version},/var/cache/%{name}} \
 	$RPM_BUILD_ROOT{%{_bindir},%{_examplesdir}/%{name}-%{version},%{_datadir}/%{name}}
+
+cd installed
 
 install %{name}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}-%{version}.jar
 ln -s %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/%{name}.jar
@@ -149,7 +151,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README.txt NEWS LICENSE.txt
+%doc installed/{ACKNOWLEDGMENTS,README.txt,NEWS,LICENSE.txt}
 %attr(755,root,root) %{_bindir}/%{name}
 %{_javadir}/*.jar
 %dir %{_datadir}/%{name}
@@ -174,7 +176,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files doc
 %defattr(644,root,root,755)
-%doc Doc/*.html Doc/images javadoc
+%doc installed/Doc/*.html installed/Doc/images javadoc
 
 %files javadoc
 %defattr(644,root,root,755)
