@@ -1,12 +1,12 @@
 Summary:	Python implementation in Java
 Summary(pl.UTF-8):	Implementacja języka Python w Javie
 Name:		jython
-Version:	2.2
+Version:	2.2.1
 Release:	1
 License:	BSD
 Group:		Development/Languages/Java
 Source0:	http://dl.sourceforge.net/jython/%{name}_installer-%{version}.jar
-# Source0-md5:	aba8e11ed071be7f7c2687624b5e7918
+# Source0-md5:	774543534bef2d68247953882237d448
 URL:		http://www.jython.org/
 BuildRequires:	jdk
 BuildRequires:	jpackage-utils
@@ -96,7 +96,7 @@ unset CLASSPATH || :
 unset JAVA_HOME || :
 export JAVA_HOME="%{java_home}"
 
-%java -jar jython_installer-2.2.jar --silent --directory installed/ --type all
+%java -jar jython_installer-%{version}.jar --silent --directory installed/ --type all
 
 ln -s %{_javadocdir}/%{name}-%{version} javadoc
 
@@ -118,6 +118,8 @@ ln -sf /var/cache/%{name} $RPM_BUILD_ROOT%{_datadir}/%{name}/cachedir
 unset CLASSPATH || :
 export JAVA_HOME="%{java_home}"
 
+%java -Dpython.home=. -classpath jython.jar "org.python.util.jython" -c "import compileall; compileall.compile_dir(\"$RPM_BUILD_ROOT%{_datadir}/%{name}/Lib\", ddir=\"$RPM_BUILD_ROOT\")"
+
 cat >$RPM_BUILD_ROOT%{_bindir}/%{name} <<'EOF'
 #/bin/sh
 
@@ -133,21 +135,23 @@ cat >$RPM_BUILD_ROOT%{_bindir}/jythonc <<'EOF'
 exec %{_bindir}/%{name} "%{_datadir}/%{name}/Tools/jythonc/jythonc.py" "$@"
 EOF
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post
 # rebuild cache
+umask 022
 %{_bindir}/%{name} -c "import site"
 
 %post modules
 # rebuild cache
+umask 022
 %{_bindir}/%{name} -c "import site"
 
 %preun
 if [ "$1" = "0" ]; then
 	rm -rf /var/cache/%{name}/*
 fi
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
@@ -158,12 +162,34 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/cachedir
 /var/cache/%{name}
 %dir %{_datadir}/%{name}/Lib
+%{_datadir}/%{name}/Lib/UserDict.py
+%{_datadir}/%{name}/Lib/UserDict$py.class
+%{_datadir}/%{name}/Lib/javaos.py
+%{_datadir}/%{name}/Lib/javaos$py.class
+%{_datadir}/%{name}/Lib/javapath.py
+%{_datadir}/%{name}/Lib/javapath$py.class
 %{_datadir}/%{name}/Lib/site.py
+%{_datadir}/%{name}/Lib/site$py.class
+%{_datadir}/%{name}/Lib/stat.py
+%{_datadir}/%{name}/Lib/stat$py.class
+%{_datadir}/%{name}/Lib/string.py
+%{_datadir}/%{name}/Lib/string$py.class
 
 %files modules
 %defattr(644,root,root,755)
 %{_datadir}/%{name}/Lib/*
+%exclude %{_datadir}/%{name}/Lib/UserDict.py
+%exclude %{_datadir}/%{name}/Lib/UserDict$py.class
+%exclude %{_datadir}/%{name}/Lib/javaos.py
+%exclude %{_datadir}/%{name}/Lib/javaos$py.class
+%exclude %{_datadir}/%{name}/Lib/javapath.py
+%exclude %{_datadir}/%{name}/Lib/javapath$py.class
 %exclude %{_datadir}/%{name}/Lib/site.py
+%exclude %{_datadir}/%{name}/Lib/site$py.class
+%exclude %{_datadir}/%{name}/Lib/stat.py
+%exclude %{_datadir}/%{name}/Lib/stat$py.class
+%exclude %{_datadir}/%{name}/Lib/string.py
+%exclude %{_datadir}/%{name}/Lib/string$py.class
 
 %files tools
 %defattr(644,root,root,755)
