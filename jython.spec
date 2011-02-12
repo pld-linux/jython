@@ -10,6 +10,7 @@ Source0:	http://downloads.sourceforge.net/jython/%{name}_installer-%{version}.ja
 URL:		http://www.jython.org/
 BuildRequires:	jdk >= 1.5
 BuildRequires:	jpackage-utils
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.300
 Requires:	jpackage-utils
 Requires:	jre >= 1.5
