@@ -1,12 +1,12 @@
 Summary:	Python implementation in Java
 Summary(pl.UTF-8):	Implementacja języka Python w Javie
 Name:		jython
-Version:	2.5.1
+Version:	2.5.2
 Release:	1
 License:	BSD
 Group:		Development/Languages/Java
 Source0:	http://downloads.sourceforge.net/jython/%{name}_installer-%{version}.jar
-# Source0-md5:	2ee978eff4306b23753b3fe9d7af5b37
+# Source0-md5:	7c7d9abd8985df480edeacd27ed9dcd5
 URL:		http://www.jython.org/
 BuildRequires:	jdk >= 1.5
 BuildRequires:	jpackage-utils
